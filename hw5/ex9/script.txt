@@ -1,0 +1,20 @@
+#!/bin/bash
+
+FILE="$1"
+
+if [ -z "$FILE" ]; then
+    echo "String is empty"
+    exit 1
+fi
+
+if [ ! -e "$FILE" ]; then
+    echo "Error: File does not exist."
+    exit 1
+fi
+
+if [ ! -r "$FILE" ]; then
+    echo "Error: File is not readable."
+    exit 1
+fi
+
+cat "$FILE"

@@ -1,0 +1,12 @@
+#!/bin/bash
+
+THRESHOLD="${THRESHOLD:-80}"
+LOG_FILE="/var/log/disk.log"
+
+USAGE=$(df / | awk 'NR==2 {print $5}' | sed 's/%//')
+
+if [ "$USAGE" -gt "$THRESHOLD" ]; then
+    echo "$(date '+%Y-%m-%d %H:%M:%S') WARNING: / usage is ${USAGE}% and exceeds threshold ${THRESHOLD}%" >> "$LOG_FILE"
+else
+	echo "$(date '+%Y-%m-%d %H:%M:%S') OK: Disk is ${USAGE}%" >> "$LOG_FILE"	
+fi

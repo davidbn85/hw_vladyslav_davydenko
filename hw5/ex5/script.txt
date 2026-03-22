@@ -1,0 +1,22 @@
+#!/bin/bash
+
+SOURCE="$1"
+DESTINATION="$2"
+
+if [ $# -ne 2 ]; then
+    echo "Arguments match>"
+    exit 1
+fi
+
+if [ ! -f "$SOURCE" ]; then
+    echo "Source file not found"
+    exit 1
+fi
+
+cp "$SOURCE" "$DESTINATION"
+
+if [ $? -eq 0 ]; then
+    echo "The file is successfully copied."
+else
+    echo "Error copying file."
+fi

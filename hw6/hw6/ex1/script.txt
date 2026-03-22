@@ -1,0 +1,29 @@
+#!/bin/bash
+
+SECRET_NUMBER=$((RANDOM % 100 + 1))
+MAX_ATTEMPTS=5
+ATTEMPT=1
+
+while [ "$ATTEMPT" -le "$MAX_ATTEMPTS" ]; do
+    echo "Attempt $ATTEMPT of $MAX_ATTEMPTS"
+    read -p "Guess the number (1-100): " guess
+
+    if ! [[ "$guess" =~ ^[0-9]+$ ]]; then
+        echo "Please enter a valid number."
+        continue
+    fi
+
+    if [ "$guess" -eq "$SECRET_NUMBER" ]; then
+        echo "Congratulations! You guessed the right number."
+        exit 0
+    elif [ "$guess" -gt "$SECRET_NUMBER" ]; then
+        echo "Too high"
+    else
+        echo "Too low"
+    fi
+
+    ATTEMPT=$((ATTEMPT + 1))
+done
+
+echo "Sorry, you've run out of attempts. The correct number was $SECRET_NUMBER"
+exit 0

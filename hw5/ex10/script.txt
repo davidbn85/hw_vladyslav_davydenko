@@ -1,0 +1,21 @@
+#!/bin/bash
+
+WATCH_DIR="$HOME/watch"
+
+mkdir -p "$WATCH_DIR"
+
+inotifywait -m -q \
+    -e close_write \
+    --format '%w%f' \
+    "$WATCH_DIR" | while read -r file
+do
+    [ -f "$file" ] || continue
+
+    case "$file" in
+        *.back) continue ;;
+    esac
+
+    cat "$file"
+    mv "$file" "$file.back"
+done
+

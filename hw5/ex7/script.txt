@@ -1,0 +1,11 @@
+#!/bin/bash
+
+FILE="$1"
+
+if [ -z "$FILE" ]; then
+    echo "Usage: $0 <FILE>"
+    exit 1
+fi
+
+line_count=$(wc -l < "$FILE")
+echo "The file '$FILE' has $line_count lines."
