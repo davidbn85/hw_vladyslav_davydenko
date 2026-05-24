@@ -1,0 +1,160 @@
+
+===== 1. GET all students =====
+{
+    "status_code": 200,
+    "response": []
+}
+
+===== 2. POST create first student =====
+{
+    "status_code": 201,
+    "response": {
+        "age": 20,
+        "first_name": "John",
+        "id": 1,
+        "last_name": "Smith"
+    }
+}
+
+===== 3. POST create second student =====
+{
+    "status_code": 201,
+    "response": {
+        "age": 22,
+        "first_name": "Anna",
+        "id": 2,
+        "last_name": "Brown"
+    }
+}
+
+===== 4. POST create third student =====
+{
+    "status_code": 201,
+    "response": {
+        "age": 24,
+        "first_name": "Tom",
+        "id": 3,
+        "last_name": "Wilson"
+    }
+}
+
+===== 5. GET all students after POST =====
+{
+    "status_code": 200,
+    "response": [
+        {
+            "age": 20,
+            "first_name": "John",
+            "id": 1,
+            "last_name": "Smith"
+        },
+        {
+            "age": 22,
+            "first_name": "Anna",
+            "id": 2,
+            "last_name": "Brown"
+        },
+        {
+            "age": 24,
+            "first_name": "Tom",
+            "id": 3,
+            "last_name": "Wilson"
+        }
+    ]
+}
+
+===== 6. PATCH update second student age =====
+{
+    "status_code": 200,
+    "response": {
+        "age": 23,
+        "first_name": "Anna",
+        "id": 2,
+        "last_name": "Brown"
+    }
+}
+
+===== 7. GET second student by ID =====
+{
+    "status_code": 200,
+    "response": {
+        "age": 23,
+        "first_name": "Anna",
+        "id": 2,
+        "last_name": "Brown"
+    }
+}
+
+===== 8. PUT update third student =====
+{
+    "status_code": 200,
+    "response": {
+        "age": 25,
+        "first_name": "Robert",
+        "id": 3,
+        "last_name": "Johnson"
+    }
+}
+
+===== 9. GET third student by ID =====
+{
+    "status_code": 200,
+    "response": {
+        "age": 25,
+        "first_name": "Robert",
+        "id": 3,
+        "last_name": "Johnson"
+    }
+}
+
+===== 10. GET all students before DELETE =====
+{
+    "status_code": 200,
+    "response": [
+        {
+            "age": 20,
+            "first_name": "John",
+            "id": 1,
+            "last_name": "Smith"
+        },
+        {
+            "age": 23,
+            "first_name": "Anna",
+            "id": 2,
+            "last_name": "Brown"
+        },
+        {
+            "age": 25,
+            "first_name": "Robert",
+            "id": 3,
+            "last_name": "Johnson"
+        }
+    ]
+}
+
+===== 11. DELETE first student =====
+{
+    "status_code": 200,
+    "response": {
+        "message": "Student with ID 1 was successfully deleted."
+    }
+}
+
+===== 12. GET all students after DELETE =====
+{
+    "status_code": 200,
+    "response": [
+        {
+            "age": 23,
+            "first_name": "Anna",
+            "id": 2,
+            "last_name": "Brown"
+        },
+        {
+            "age": 25,
+            "first_name": "Robert",
+            "id": 3,
+            "last_name": "Johnson"
+        }
+    ]
+}
